@@ -16,7 +16,7 @@ export default function NavBarComponent(){
 
     return(
         <>
-        <div >
+        <div className="dark">
             <div className="flex justify-between h-25 items-center px-4">
                 <div>
                     <img src="logo.png" className="object-fit w-20 h-20 " alt="" />
