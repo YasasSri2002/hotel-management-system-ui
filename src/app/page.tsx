@@ -9,7 +9,9 @@ import AboutSection from "@/components/ui/about";
 export default function Home() {
   return (
     <>
-    <NavBar/>
+   <div className="z-50">
+     <NavBar/>
+   </div>
      <HeroSection/>
      <AboutSection/>
 
