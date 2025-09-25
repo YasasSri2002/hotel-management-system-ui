@@ -1,6 +1,7 @@
 'use client'
 
 import DynamicIcon from "../utill/DynamicIcons"
+import DropdownMenu from "./dropdown"
 
 export default function HeroSection(){
     return(
@@ -23,14 +24,7 @@ export default function HeroSection(){
                             </div>
                             <div className="grid">
                                 <label htmlFor="guests" className="text-black/80"> Guests</label>
-                                <select className="text-black/80 focus-within:bg-white bg-gray-300 rounded-2xl w-[180px] h-10 px-5 focus-within:rounded-2xl focus-within:mt-2">
-                                    <option value="">Guests</option>
-                                    <option value="1">1 Guest</option>
-                                    <option value="2">2 Guests</option>
-                                    <option value="3">3 Guests</option>
-                                    <option value="4">4 Guests</option>
-                                    <option value="5+">5+ Guests</option>
-                                </select>
+                                <DropdownMenu/>
                             </div>
                             
                             <button className="bg-white/80 border-1 text-black/60 rounded-2xl p-2 mt-5 shadow-xl hover:-translate-y-1 w-40">
