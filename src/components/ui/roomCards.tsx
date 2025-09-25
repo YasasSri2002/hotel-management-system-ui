@@ -25,9 +25,9 @@ export default function RoomCards(){
 
     return(
         <>
-            <div className="w-dvh sm:w-[30em] border-2">
+            <div className="w-full sm:w-[30em] border-2">
                 <div className="w-full h-70 bg-[url(/normalRoom.jpg)] bg-center bg-size-[100%_100%] bg-no-repeat rounded-2xl transition-all duration-500 ease-in-out hover:bg-size-[120%_120%]">
-                    <div className="bg-white rounded-2xl w-fit p-2 relative top-2 -right-100">
+                    <div className="bg-white rounded-2xl w-fit p-2 relative top-2 left-2">
                         <h6 className="text-xs">${cardRoomDetails.price}/night</h6>
                     </div>
                 </div>
@@ -59,9 +59,9 @@ export default function RoomCards(){
                 </div>
                 <div>
                     <h5 className="text-lg text-black/90">Amenities</h5>
-                    <div className="flex flex-1 flex-wrap space-x-3 space-y-3">
+                    <div className="flex flex-1 flex-wrap mx-5 space-x-5 space-y-3 ">
                         {
-                            ["FaWifi","PiBathtubLight"].map((names)=>(
+                            ["FaWifi","PiBathtubLight", "FiCoffee" , "FiTv"].map((names)=>(
                                 <div key={names} 
                                 
                                 >
