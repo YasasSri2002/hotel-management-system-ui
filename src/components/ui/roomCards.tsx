@@ -1,44 +1,30 @@
 import { features } from "process";
 import DynamicIcon from "../utill/DynamicIcons";
+import { RoomDetailsModel } from "../models/roomDetails";
 
-export interface RoomDetailsModel{
-              topic: string;
-                guests: string;
-                areaOfRoom: string;
-                features: string[];
-                amentiesIconName: string[];
-                price: number;
-           
-}
+export default function RoomCards({cardRoomDetails} : {cardRoomDetails: RoomDetailsModel}){
 
-
-export default function RoomCards(){
-
-    const cardRoomDetails: RoomDetailsModel = {
-                topic:"Deluxe Suite",
-                guests: "2-4 Guests",
-                areaOfRoom: "650 sq ft",
-                features:["kings size"],
-                amentiesIconName:["faBed"], 
-                price:199
-    };
 
     return(
         <>
-            <div className="w-full sm:w-[30em] border-2">
-                <div className="w-full h-70 bg-[url(/normalRoom.jpg)] bg-center bg-size-[100%_100%] bg-no-repeat rounded-2xl transition-all duration-500 ease-in-out hover:bg-size-[120%_120%]">
+            <div className="w-full sm:w-[25em] rounded-2xl h-[38em] shadow-2xl">
+                <div 
+                className="w-full h-70 bg-center bg-size-[100%_100%] bg-no-repeat rounded-2xl transition-all duration-500 ease-in-out hover:bg-size-[120%_120%]" 
+                style={{ backgroundImage: `url(${cardRoomDetails.cardImage})` }}
+                >
                     <div className="bg-white rounded-2xl w-fit p-2 relative top-2 left-2">
                         <h6 className="text-xs">${cardRoomDetails.price}/night</h6>
                     </div>
                 </div>
-                <h1 className="text-xl text-black">{cardRoomDetails.topic}</h1>
+                <div className="grid content-between h-[20em] p-4">
+                    <h1 className="text-xl text-black">{cardRoomDetails.topic}</h1>
                 <div className="flex space-x-5">
                     <div className="flex space-x-2 items-center ">
-                        <DynamicIcon name="IoPeopleOutline" className="text-xl" />
+                        <DynamicIcon name="IoPeopleOutline" className="text-xl " />
                         <h2>{cardRoomDetails.guests}</h2>  
                     </div> 
                     <div className="flex space-x-2 items-center ">
-                        <DynamicIcon name="FaBed" className="text-xl"  />
+                        <DynamicIcon name="BsArrowsFullscreen" className="text-xl font-light"  />
                         <h2>{cardRoomDetails.areaOfRoom}</h2>  
                     </div>  
                 </div>
@@ -46,7 +32,7 @@ export default function RoomCards(){
                     <h5 className="text-lg text-black/90">features</h5>
                     <div className="flex flex-wrap flex-1 space-x-1 space-y-2 justify-evenly">
                          {
-                            ["King Bed","City View","Mini Bar","Jacuzzi"].map((feature=>(
+                          cardRoomDetails.features.map((feature=>(
                                 <p key={feature} 
                                 className="bg-gray-400/90 py-1 px-5 rounded-xl text-sm flex items-center justify-center"
                                 >
@@ -61,7 +47,7 @@ export default function RoomCards(){
                     <h5 className="text-lg text-black/90">Amenities</h5>
                     <div className="flex flex-1 flex-wrap mx-5 space-x-5 space-y-3 ">
                         {
-                            ["FaWifi","PiBathtubLight", "FiCoffee" , "FiTv"].map((names)=>(
+                            cardRoomDetails.amentiesIconName.map((names)=>(
                                 <div key={names} 
                                 
                                 >
@@ -70,6 +56,12 @@ export default function RoomCards(){
                             ))
                         }
                     </div>
+                </div>
+                <div className="grid justify-items-center">
+                    <button className="bg-slate-950 text-white/80  hover:-translate-1 rounded-2xl w-[20em] h-10">
+                        Book this Room
+                    </button>
+                </div>
                 </div>
             </div>
         </>
