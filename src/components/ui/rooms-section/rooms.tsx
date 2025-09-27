@@ -1,5 +1,5 @@
 import RoomCards from "./roomCards";
-import { RoomDetailsModel } from "../models/roomDetails";
+import { RoomDetailsModel } from "../../models/roomDetails";
 
 const roomCardDetailsList: RoomDetailsModel[] =[
     {           id:1,
@@ -40,7 +40,7 @@ export default function RoomSection(){
                 <h2 className="text-xl sm:text-4xl">Comfort & Elegance</h2>
                 <p className="text-lg sm:text-xl text-center">Choose from our carefully designed rooms and suites, each offering modern amenities and stunning views to ensure your stay is both comfortable and memorable.</p>
             </div>
-           <div className="grid sm:flex sm:flex-wrap space-x-5 mx-5 justify-evenly">
+           <div className="grid sm:flex sm:flex-wrap sm:space-x-5 sm:mx-5 sm:justify-evenly gap-5">
             {
                 roomCardDetailsList.map((details)=>(
                     <div key={details.id}>

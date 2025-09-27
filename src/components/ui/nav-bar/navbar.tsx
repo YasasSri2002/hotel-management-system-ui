@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import DynamicIcon from "../utill/DynamicIcons";
+import DynamicIcon from "../../utill/DynamicIcons";
 
 export default function NavBarComponent() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

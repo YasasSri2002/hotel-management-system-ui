@@ -1,6 +1,6 @@
 'use client'
 
-import DynamicIcon from "../utill/DynamicIcons"
+import DynamicIcon from "../../utill/DynamicIcons"
 import DropdownMenu from "./dropdown"
 
 export default function HeroSection(){

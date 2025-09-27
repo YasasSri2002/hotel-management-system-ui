@@ -1,6 +1,6 @@
 import { features } from "process";
-import DynamicIcon from "../utill/DynamicIcons";
-import { RoomDetailsModel } from "../models/roomDetails";
+import DynamicIcon from "../../utill/DynamicIcons";
+import { RoomDetailsModel } from "../../models/roomDetails";
 
 export default function RoomCards({cardRoomDetails} : {cardRoomDetails: RoomDetailsModel}){
 

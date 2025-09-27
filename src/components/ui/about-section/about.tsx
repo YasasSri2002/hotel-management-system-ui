@@ -1,4 +1,4 @@
-import DynamicIcon from "../utill/DynamicIcons";
+import DynamicIcon from "../../utill/DynamicIcons";
 export default function AboutSection(){
     return(
         <div className="
@@ -29,7 +29,7 @@ export default function AboutSection(){
                 </div>
             </div>
             <div className="col-2">
-                <div className="flex flex-1 flex-wrap  justify-center gap-5 mx-5 mt-20">
+                <div className="flex flex-1 flex-wrap  justify-center gap-5 mx-5 mt-10">
                     <div className="grid justify-items-center content-center bg-white rounded-2xl w-[15em] h-[10em] p-5 shadow-2xl">
                         <div className="bg-gray-300 p-3 rounded-2xl">
                             <DynamicIcon name="FaRegStar" className="text-2xl"/>
