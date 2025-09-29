@@ -2,6 +2,8 @@ import { AmenitiesDetailsModel } from "@/components/models/amenitiesDetails";
 import AmentiesCard from "./amentiesCard";
 import Cards from "../noBackgorundCars";
 import { NoBgCardDetailsModel } from "@/components/models/noBgCardDetials";
+import { HeaderModel } from "@/components/models/header";
+import HeaderSection from "../header";
 
 export default function AmenitiesSection(){
 
@@ -68,14 +70,16 @@ export default function AmenitiesSection(){
         }
     ]
 
+    const headerDetails: HeaderModel ={
+            sectionTopic: "Hotel Amenities",
+            topic: "World-Class Facilities",
+            details: "Discover our comprehensive range of amenities designed to enhance your stay and provide you with everything you need for business, leisure, and relaxation"
+    }
+
     return(
         <>
             <div>
-                <div className="grid justify-items-center gap-10 p-10">
-                    <h1 className="text-xs sm:text-sm border-1 bg-white shadow-xl rounded-xl p-2 px-5 hover:cursor-pointer hover:-translate-y-1 hover:scale-101 transition-all ease ">Hotel Amenities</h1>
-                    <h2 className="text-xl sm:text-4xl">World-Class Facilities</h2>
-                    <p className="text-lg sm:text-xl text-center">Discover our comprehensive range of amenities designed to enhance your stay and provide you with everything you need for business, leisure, and relaxation.</p>
-                </div>
+                <HeaderSection details={headerDetails}/>
                 
                 <div className="grid sm:flex sm:flex-wrap sm:space-x-5 sm:space-y-5 sm:justify-evenly gap-5">
                     {

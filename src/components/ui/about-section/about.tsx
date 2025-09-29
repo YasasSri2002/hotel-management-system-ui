@@ -1,5 +1,14 @@
+import { HeaderModel } from "@/components/models/header";
 import DynamicIcon from "../../utill/DynamicIcons";
+import HeaderSection from "../header";
 export default function AboutSection(){
+
+    const headerDetails: HeaderModel = {
+        sectionTopic : "About",
+        topic: "Excellence in Hospitality",
+        details: "For over 50 years, Grand Hotel has been synonymous with luxury, comfort, and exceptional service. Located in the heart of the city, we offer an unparalleled experience for both business and leisure travelers."
+    }
+
     return(
         <div className="
         bg-gradient-to-b 
@@ -7,12 +16,7 @@ export default function AboutSection(){
             via-gray-300/40 via-95% 
             to-transparent to-100%
         ">
-            <div className="grid gap-5 justify-items-center content-center p-10 ">
-                <h1 className="text-2xl sm:text-4xl text-black/90">Excellence in Hospitality</h1>
-                <p className="text-xl text-center text-gray-500">
-                    For over 50 years, Grand Hotel has been synonymous with luxury, comfort, and exceptional service. Located in the heart of the city, we offer an unparalleled experience for both business and leisure travelers.
-                </p>
-            </div>
+           <HeaderSection details={headerDetails}/>
            <div className="sm:grid sm:grid-cols-2">
             <div className="col-1 gap-5">
                  <div className="grid gap-5 justify-items-center sm:justify-items-start content-center p-5 mt-5 mb-10">
