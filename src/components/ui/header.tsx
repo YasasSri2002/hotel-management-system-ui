@@ -1,6 +1,6 @@
 import { HeaderModel } from "../models/header"
 
-export default function Headers({details}: {details: HeaderModel}){
+export default function HeaderSection({details}: {details: HeaderModel}){
     return(
         <>
         <div className="grid justify-items-center gap-10 p-10">

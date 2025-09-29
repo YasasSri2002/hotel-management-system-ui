@@ -1,5 +1,6 @@
 import { HeaderModel } from "@/components/models/header";
 import HeaderSection from "../header";
+import Information from "./infomation";
 
 export default function ContactSection(){
 
@@ -12,6 +13,9 @@ export default function ContactSection(){
     return(
         <>
             <HeaderSection details={headerDetails}/>
+            <div className="grid justify-items-center sm:flex sm:justify-evenly gap-5 w-full">
+                <Information/>
+            </div>
         </>
     );
 }
