@@ -21,6 +21,8 @@ export default function NavBarComponent() {
                 <ul className="sm:flex space-x-5 mr-3 items-center hidden">
                     <li><Link href="/home">Home</Link></li>
                     <li><Link href="/about">About</Link></li>
+                    <li><Link href="/about">Rooms</Link></li>
+                    <li><Link href="/about">Amenities</Link></li>
                     <li><Link href="/contact">Contact us</Link></li>
                 </ul>
                 <button 
@@ -47,6 +49,8 @@ export default function NavBarComponent() {
                     <ul className="grid gap-8 mt-16 text-center text-white">
                         <li><Link href="/home" onClick={toggleMenu}>Home</Link></li>
                         <li><Link href="/about" onClick={toggleMenu}>About</Link></li>
+                        <li><Link href="/contact" onClick={toggleMenu}>Rooms</Link></li>
+                        <li><Link href="/contact" onClick={toggleMenu}>Amenities</Link></li>
                         <li><Link href="/contact" onClick={toggleMenu}>Contact us</Link></li>
                     </ul>
                 </div>
