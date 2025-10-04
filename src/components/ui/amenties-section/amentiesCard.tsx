@@ -1,9 +1,9 @@
 import DynamicIcon from "@/components/utill/DynamicIcons";
 import { AmenitiesDetailsModel } from "@/components/models/amenitiesDetails";
 
-export default function AmentiesCard({details}: {details: AmenitiesDetailsModel}){
+export default function AmentiesCard({details}: {readonly details: AmenitiesDetailsModel}){
     return(
-        <>
+        
             <div className="w-full sm:w-[35em] h-[20em] relative">
                 <div className="rounded-2xl w-full h-full bg-cover bg-center shadow-2xl" 
                 style={{ backgroundImage: `url(${details.imageUrl})` }}>
@@ -17,6 +17,6 @@ export default function AmentiesCard({details}: {details: AmenitiesDetailsModel}
                     </div>
                 </div>
             </div>
-        </>
+       
     );
 }

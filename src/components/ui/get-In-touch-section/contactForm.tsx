@@ -2,7 +2,6 @@ import DynamicIcon from "@/components/utill/DynamicIcons";
 
 export default function ContactForm(){
     return(
-        <>
         <div className="mb-5 w-dvw  sm:w-full ">
             <h1 className="text-black/70 text-xl">Send us message</h1>
             <div className="w-dvw sm:w-full sm:h-full mt-10">
@@ -60,6 +59,6 @@ export default function ContactForm(){
             </div>
            
         </div>
-        </>
+        
     );
 }

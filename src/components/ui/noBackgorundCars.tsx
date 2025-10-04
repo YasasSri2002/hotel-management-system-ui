@@ -1,9 +1,8 @@
 import DynamicIcon from "../utill/DynamicIcons";
 import { NoBgCardDetailsModel } from "../models/noBgCardDetials";
 
-export default function Cards({details}: {details: NoBgCardDetailsModel}){
+export default function Cards({details}: { readonly details: NoBgCardDetailsModel}){
     return(
-        <> 
             <div className="w-[15em] h-[15em] bg-white rounded-2xl  shadow-xl hover:scale-105 hover:-translate-1">
                 <div className="grid justify-items-center content-center p-2 w-full h-full gap-3">
                     <div className="bg-gray-400/50 rounded-full w-[5em] h-[5em] flex justify-center items-center">
@@ -16,7 +15,6 @@ export default function Cards({details}: {details: NoBgCardDetailsModel}){
 
                 </div>
             </div>
-        </>
 
     );
 }

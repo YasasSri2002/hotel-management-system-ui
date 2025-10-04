@@ -34,7 +34,6 @@ export default function Information(){
     ]
 
     return(
-        <>
         <div className="gap-5">
             <h1 className="text-black/80 text-xl sm:text-2xl">Contact Infomation</h1>
             <div className="grid gap-4 w-full mt-10">
@@ -56,6 +55,5 @@ export default function Information(){
                 }
             </div>
         </div>
-        </>
     )
 }

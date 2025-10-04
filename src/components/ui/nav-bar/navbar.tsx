@@ -13,7 +13,7 @@ export default function NavBarComponent() {
     };
 
     return (
-        <div className="relative z-50"> {/* Added z-50 to ensure it's above other content */}
+        <div className="relative z-50"> 
             <div className="flex justify-between h-24 items-center px-4">
                 <div>
                     <img src="logo.png" className="object-fit w-20 h-20" alt="Logo" />
