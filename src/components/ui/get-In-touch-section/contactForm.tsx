@@ -2,7 +2,7 @@ import DynamicIcon from "@/components/utill/DynamicIcons";
 
 export default function ContactForm(){
     return(
-        <div className="mb-5 w-dvw  sm:w-full ">
+        <div className="mb-5 w-dvw  sm:w-fit ">
             <h1 className="text-black/70 text-xl">Send us message</h1>
             <div className="w-dvw sm:w-full sm:h-full mt-10">
                 <div className="flex  justify-evenly space-x-2 sm:space-x-5 ">

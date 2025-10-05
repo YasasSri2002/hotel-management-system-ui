@@ -5,7 +5,7 @@ import AboutSection from "@/components/ui/about-section/about";
 import RoomSection from "@/components/ui/rooms-section/rooms";
 import AmenitiesSection from "@/components/ui/amenties-section/amenties";
 import ContactSection from "@/components/ui/get-In-touch-section/contact";
-
+import FooterSection from "@/components/ui/footer";
 
 
 export default function Home() {
@@ -19,6 +19,7 @@ export default function Home() {
      <RoomSection/>
      <AmenitiesSection/>
      <ContactSection/>
+     <FooterSection/>
     </>
   );
 }
