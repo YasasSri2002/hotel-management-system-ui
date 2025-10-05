@@ -15,7 +15,7 @@ export default function AboutSection(){
             from-transparent from-0% 
             via-gray-300/40 via-95% 
             to-transparent to-100%
-        ">
+        " id="about">
            <HeaderSection details={headerDetails}/>
            <div className="sm:grid sm:grid-cols-2">
             <div className="col-1 gap-5">

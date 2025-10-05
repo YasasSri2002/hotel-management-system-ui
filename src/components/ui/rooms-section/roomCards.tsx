@@ -2,11 +2,10 @@ import { features } from "process";
 import DynamicIcon from "../../utill/DynamicIcons";
 import { RoomDetailsModel } from "../../models/roomDetails";
 
-export default function RoomCards({cardRoomDetails} : {cardRoomDetails: RoomDetailsModel}){
+export default function RoomCards({cardRoomDetails} : { readonly cardRoomDetails: RoomDetailsModel}){
 
 
     return(
-        <>
             <div className="w-full sm:w-[25em] rounded-2xl h-[38em] shadow-2xl">
                 <div 
                 className="w-full h-70 bg-center bg-size-[100%_100%] bg-no-repeat rounded-2xl transition-all duration-500 ease-in-out hover:bg-size-[120%_120%]" 
@@ -64,6 +63,6 @@ export default function RoomCards({cardRoomDetails} : {cardRoomDetails: RoomDeta
                 </div>
                 </div>
             </div>
-        </>
+        
     );    
 }

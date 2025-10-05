@@ -41,8 +41,8 @@ const headerDetails:HeaderModel = {
 
 export default function RoomSection(){
     return(
-        <>
-        <div>
+    
+        <div id="rooms-section">
             <HeaderSection details={headerDetails}/>
            <div className="grid sm:flex sm:flex-wrap sm:space-x-5 sm:mx-5 sm:justify-evenly gap-5">
             {
@@ -54,6 +54,6 @@ export default function RoomSection(){
             }
            </div>
         </div>
-        </>
+        
     );
 }

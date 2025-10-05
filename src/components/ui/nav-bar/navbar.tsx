@@ -20,10 +20,10 @@ export default function NavBarComponent() {
                 </div>
                 <ul className="sm:flex space-x-5 mr-3 items-center hidden">
                     <li><Link href="/home">Home</Link></li>
-                    <li><Link href="/about">About</Link></li>
-                    <li><Link href="/about">Rooms</Link></li>
-                    <li><Link href="/about">Amenities</Link></li>
-                    <li><Link href="/contact">Contact us</Link></li>
+                    <li><Link href="#about">About</Link></li>
+                    <li><Link href="#rooms-section">Rooms</Link></li>
+                    <li><Link href="#amenities">Amenities</Link></li>
+                    <li><Link href="#contactUs">Contact us</Link></li>
                 </ul>
                 <button 
                     onClick={toggleMenu} 
@@ -48,10 +48,10 @@ export default function NavBarComponent() {
                     </div>
                     <ul className="grid gap-8 mt-16 text-center text-white">
                         <li><Link href="/home" onClick={toggleMenu}>Home</Link></li>
-                        <li><Link href="/about" onClick={toggleMenu}>About</Link></li>
-                        <li><Link href="/contact" onClick={toggleMenu}>Rooms</Link></li>
-                        <li><Link href="/contact" onClick={toggleMenu}>Amenities</Link></li>
-                        <li><Link href="/contact" onClick={toggleMenu}>Contact us</Link></li>
+                        <li><Link href="#about" onClick={toggleMenu}>About</Link></li>
+                        <li><Link href="#rooms-section" onClick={toggleMenu}>Rooms</Link></li>
+                        <li><Link href="#amenities" onClick={toggleMenu}>Amenities</Link></li>
+                        <li><Link href="#contactUs" onClick={toggleMenu}>Contact us</Link></li>
                     </ul>
                 </div>
             )}

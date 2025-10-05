@@ -12,12 +12,12 @@ export default function ContactSection(){
     }
 
     return(
-        <>
+        <div id="contactUs">
             <HeaderSection details={headerDetails}/>
             <div className="grid justify-items-center sm:flex sm:justify-evenly gap-5 w-full">
                 <Information/>
                 <ContactForm/>
             </div>
-        </>
+        </div>
     );
 }

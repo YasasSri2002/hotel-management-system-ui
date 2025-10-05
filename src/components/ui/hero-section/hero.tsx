@@ -5,7 +5,7 @@ import DropdownMenu from "./dropdown"
 
 export default function HeroSection(){
     return(
-        <div className="w-full h-dvh relative z-0">
+        <div className="w-full h-dvh relative z-0" id="hero-section" >
             <div className="bg-[url(/hero.jpg)] bg-size-[100%_100%] bg-center sm:bg-fixed bg-no-repeat w-dvw sm:w-full h-dvh">
                 <div className="bg-black/60 w-full h-full absolute inset-0 z-10"></div>
                 <div className="w-full h-full grid content-center justify-items-center text-white/80 absolute top-0 z-20">

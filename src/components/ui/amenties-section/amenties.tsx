@@ -77,8 +77,8 @@ export default function AmenitiesSection(){
     }
 
     return(
-        <>
-            <div>
+        
+            <div id="amenities">
                 <HeaderSection details={headerDetails}/>
                 
                 <div className="grid sm:flex sm:flex-wrap sm:space-x-5 sm:space-y-5 sm:justify-evenly gap-5">
@@ -98,6 +98,6 @@ export default function AmenitiesSection(){
                 </div>
                 
             </div>
-        </>
+        
     );
 }
