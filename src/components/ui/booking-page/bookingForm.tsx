@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import DynamicIcon from "../../utill/DynamicIcons";
+import BreadCrumb from "./bookingBredcrumb";
 
 export default function BookingForm(){
     return(
@@ -17,6 +18,10 @@ export default function BookingForm(){
                     <h1 className="text-center text-md sm:text-lg md:text-2xl">Urbanite</h1>
                     
                 </div>
+            </div>
+
+            <div id="breadCrumb">
+                <BreadCrumb/>
             </div>
 
             <div className="flex space-x-5">
