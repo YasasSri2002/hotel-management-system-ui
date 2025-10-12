@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import DynamicIcon from "../../utill/DynamicIcons";
 import BreadCrumb from "./bread-crumb/bookingBredcrumb";
+import BookingSummary from "./bookingSummary";
 
 export default function BookingForm(){
 
@@ -37,14 +38,18 @@ export default function BookingForm(){
 
              <div id="breadCrumb">
                 <BreadCrumb steps={step}/>
-            </div> 
-
-            <div className="flex space-x-5">
-                <label htmlFor="name">Name:</label>
-                <input type="text" name="name" />
             </div>
 
-            <div className="flex space-x-5 mt-3">
+            <div className="grid  md:grid-cols-4  w-full p-5 gap-5 ">
+               <div className="md:col-span-3 border-4 border-red-500">
+
+               </div>
+               <div className="md:col-4 border-2 border-yellow-300">
+                    <BookingSummary/>
+               </div>
+            </div> 
+
+            <div className="flex space-x-5 mt-3 w-full justify-center">
                 <button id="prev" className="border-2 px-4 py-1"
                 disabled={step==1}
                 onClick={handlePrev}

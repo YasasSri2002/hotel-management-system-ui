@@ -25,7 +25,7 @@ export default function BreadCrumb({steps}: { readonly steps: number}) {
 
   return (
     
-      <div className="flex items-center justify-evenly h-30 border-green-600 border-2 px-10 w-dvw sm:w-full space-x-5
+      <div className="flex items-center justify-evenly h-30 border-gray-300 border-b-1 px-10 w-dvw sm:w-full space-x-5
       sm:space-x-0">
         <div className="w-20 sm:w-full max-w-30">
           <FirstItem name="Rooms & Dates" />
