@@ -1,12 +1,18 @@
 "use client"; 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import DynamicIcon from "@/components/utill/DynamicIcons";
 
-export default function DropdownMenu({items, smallSize}: {readonly items:string[], readonly smallSize : boolean} ) {
+export default function DropdownMenu({items, smallSize, name}: {readonly items:string[], readonly smallSize : boolean ,readonly name: string} ) {
+
+
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("Guests"); 
+  const [selected, setSelected] = useState("Select"); 
+
+  useEffect(()=>{
+    setSelected(name);
+  },[]);
   
 
   const handleSelect = (value: string) => {

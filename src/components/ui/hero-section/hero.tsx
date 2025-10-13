@@ -24,7 +24,7 @@ export default function HeroSection(){
                             </div>
                             <div className="grid">
                                 <label htmlFor="guests" className="text-black/80"> Guests</label>
-                                <DropdownMenu  smallSize={true} items={["1 Guest", "2 Guests", "3 Guests", "4 Guests", "5+ Guests"]}/>
+                                <DropdownMenu name="Guests" smallSize={true} items={["1 Guest", "2 Guests", "3 Guests", "4 Guests", "5+ Guests"]}/>
                             </div>
                             
                             <button className="bg-white/80 border-1 text-black/60 rounded-2xl p-2 mt-5 shadow-xl hover:-translate-y-1 w-40">

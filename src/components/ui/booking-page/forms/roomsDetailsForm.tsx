@@ -1,3 +1,4 @@
+import DropdownMenu from '@/components/ui/dropdown';
 export default function RoomsDetailsForm(){
     return(
         <div className="grid px-5 gap-3">
@@ -8,10 +9,8 @@ export default function RoomsDetailsForm(){
 
             <div>
                 <div className="grid">
-                    <label htmlFor="roomType">Room Type</label>
-                    <select name="roomType" className="">
-                        <option value="">Select a Room</option>
-                    </select>
+                    <h1>Room Type</h1>
+                   <DropdownMenu name="Room Type" smallSize={false} items={["delux room"]}/>
                 </div>
 
             </div>
