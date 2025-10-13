@@ -4,11 +4,11 @@ import DynamicIcon from "../utill/DynamicIcons";
 export default function FooterSection(){
     return(
         <div className="bg-slate-950">
-        <div className=" text-white w-full h-full pt-5 px-5 grid sm:grid sm:grid-cols-4">
+        <div className=" text-white w-full h-full pt-5 px-5 grid  sm:grid-cols-4 gap-5">
             
-            <div className="col-1 gap-5 grid" id="about">
+            <div className="sm:col-1 gap-5 grid" id="about">
                 <h1 className="text-md sm:text-lg">Urbanite Hotel</h1>
-                <p className="text-wrap text-sm sm:text-md">Experience luxury and comfort in the heart of the city. Your premier destination for exceptional hospitality since 1973.</p>
+                <p className="text-wrap text-sm sm:text- text-gray-400">Experience luxury and comfort in the heart of the city. Your premier destination for exceptional hospitality since 1973.</p>
                 <div className="flex justify-center space-x-5">
                     <button className="w-10 h-10">
                         <Link href="">
@@ -33,9 +33,9 @@ export default function FooterSection(){
                 </div>
             </div>
 
-            <div id="quick-links " className="col-2 grid gap-5">
+            <div id="quick-links " className="sm:col-2 grid gap-5">
                 <h2>Quick Links</h2>
-                <ul className="grid gap-2 text-white">
+                <ul className="grid gap-2 text-gray-400">
                         <li><Link href="/home">Home</Link></li>
                         <li><Link href="/about">About</Link></li>
                         <li><Link href="/rooms">Rooms</Link></li>
@@ -43,9 +43,9 @@ export default function FooterSection(){
                         <li><Link href="#contactUs">Contact us</Link></li>
                     </ul>
             </div>
-            <div id="services" className="col-3 grid gap-5">
+            <div id="services" className="sm:col-3 grid gap-5">
                 <h2>Services</h2>
-                <ul className="grid gap-2 text-white">
+                <ul className="grid gap-2 text-gray-400">
                         <li><Link href="/home">Room Service</Link></li>
                         <li><Link href="/about">Concierge</Link></li>
                         <li><Link href="/rooms">Valet Parking</Link></li>
@@ -53,9 +53,9 @@ export default function FooterSection(){
                         <li><Link href="#contactUs">Event Planning</Link></li> 
                     </ul>
             </div>
-            <div className="col-4 grid ">
+            <div className="sm:col-4 grid ">
                 <h1>Contact Info</h1>
-                <ul className="grid gap-2 text-white">
+                <ul className="grid gap-2 text-gray-400">
                         <li>123 Luxury Avenue Downtown District New York, NY 10001</li>
                         <li>Phone: (+94) 70 - 550 - 500</li>
                         <li>Email: info@urbanite.com</li>
