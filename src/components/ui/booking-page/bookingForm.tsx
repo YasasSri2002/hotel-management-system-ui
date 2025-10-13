@@ -5,6 +5,10 @@ import { useState } from "react";
 import DynamicIcon from "../../utill/DynamicIcons";
 import BreadCrumb from "./bread-crumb/bookingBredcrumb";
 import BookingSummary from "./bookingSummary";
+import RoomsDetailsForm from "./forms/roomsDetailsForm";
+import GuestDetailsForm from "./forms/guestDetailsForm";
+import PaymentGatwayInterfaceForm from "./forms/paymentGatewayInterfaceFrom";
+
 
 export default function BookingForm(){
 
@@ -17,6 +21,19 @@ export default function BookingForm(){
     const handleNext = function(){
         setStep((prev) => Math.min(prev + 1, 3));
         
+    }
+
+    const renderForms = ()=>{
+
+        switch(step){
+            case 1:
+                return(<RoomsDetailsForm/>);
+            case 2:
+                return(<GuestDetailsForm/>);
+            case 3:
+                return(<PaymentGatwayInterfaceForm/>)
+        }
+
     }
 
 
@@ -42,22 +59,21 @@ export default function BookingForm(){
 
             <div className="grid  md:grid-cols-4  w-full p-5 gap-5 ">
                <div className="md:col-span-3 border-4 border-red-500">
-
+                    {renderForms()}
                </div>
-               <div className="md:col-4 border-2 border-yellow-300">
+               <div className="md:col-4">
                     <BookingSummary/>
                </div>
             </div> 
 
             <div className="flex space-x-5 mt-3 w-full justify-center">
-                <button id="prev" className="border-2 px-4 py-1"
+                <button id="prev" className={`border-2 px-4 py-1 ${step==1 ? 'sr-only': 'not-sr-only'} `}
                 disabled={step==1}
                 onClick={handlePrev}
                 >
                     Prev
                 </button>
-                <button id="next" className="border-2 px-4 py-1"
-                disabled= {step==3}
+                <button id="next" className={`border-2 px-4 py-1 ${step==3 ? 'sr-only': 'not-sr-only'}`}
                 onClick={handleNext}
                 >
                     Next

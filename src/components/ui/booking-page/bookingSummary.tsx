@@ -2,7 +2,7 @@ import DynamicIcon from "@/components/utill/DynamicIcons"
 
 export default function BookingSummary(){
     return(
-        <div className="border-4 border-pink-300 rounded-2xl h-fit">
+        <div className="rounded-2xl h-fit shadow-2xl">
            <div className="px-10 py-2">
              <h1 className="text-md md:text-lg text-black/90 mb-5">Booking review summary</h1>
             <div className="grid gap-y-5">
