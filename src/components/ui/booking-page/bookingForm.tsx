@@ -58,7 +58,7 @@ export default function BookingForm(){
             </div>
 
             <div className="grid  md:grid-cols-4  w-full p-5 gap-5 ">
-               <div className="md:col-span-3 border-4 border-red-500">
+               <div className="md:col-span-3 border-t-1 rounded-3xl shadow-xl">
                     {renderForms()}
                </div>
                <div className="md:col-4">
