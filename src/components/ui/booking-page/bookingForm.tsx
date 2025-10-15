@@ -57,8 +57,8 @@ export default function BookingForm(){
                 <BreadCrumb steps={step}/>
             </div>
 
-            <div className="grid  md:grid-cols-4  w-full p-5 gap-5 ">
-               <div className="md:col-span-3 border-t-1 rounded-3xl shadow-xl">
+            <div className="grid justify-items-center md:grid-cols-4 w-full p-5 gap-5 ">
+               <div className="md:col-span-3 border-t-1 rounded-3xl shadow-xl w-3xl">
                     {renderForms()}
                </div>
                <div className="md:col-4">

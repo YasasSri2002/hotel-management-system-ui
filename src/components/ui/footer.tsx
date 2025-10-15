@@ -65,11 +65,11 @@ export default function FooterSection(){
         <div className="w-full grid justify-items-center p-5 gap-5">
             <div className="w-[99%] h-0.5 bg-white/60"></div>
             <div className="grid sm:flex sm:justify-between text-white w-full">
-                    <p>&copy; 2024 Grand Hotel. All rights reserved.</p>
+                    <p className="cursor-pointer">&copy; 2024 Grand Hotel. All rights reserved.</p>
                 <div className="flex space-x-5">
-                    <h2>Privacy Policy </h2>
-                    <h2>Terms of Service</h2>
-                    <h2>Cookie Policy</h2>
+                    <h2 className="cursor-pointer">Privacy Policy </h2>
+                    <h2 className="cursor-pointer">Terms of Service</h2>
+                    <h2 className="cursor-pointer">Cookie Policy</h2>
                 </div>
             </div>
         </div>
