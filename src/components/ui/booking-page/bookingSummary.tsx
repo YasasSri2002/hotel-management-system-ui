@@ -1,6 +1,7 @@
+import { RoomDetailsModel } from "@/components/models/roomDetails"
 import DynamicIcon from "@/components/utill/DynamicIcons"
 
-export default function BookingSummary(){
+export default function BookingSummary({roomsDetails}: {readonly roomsDetails: RoomDetailsModel}){
     return(
         <div className="rounded-2xl h-fit shadow-2xl">
            <div className="px-10 py-2">

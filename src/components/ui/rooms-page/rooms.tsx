@@ -2,28 +2,26 @@
 import { useSearchParams } from "next/navigation";
 import { useRef,useState } from "react";
 
-import axios from "axios";
 
 import { RoomModel } from "@/components/models/roomModel";
 import PaginationControls from "@/components/utill/paginationControls";
 import RoomCard from "./cards";
+import {useRoomAPI} from "@/components/api-calls/roomApi";
 
 
 export default function Rooms(){
 
+    const  roomsList : RoomModel[] = useRoomAPI();
     const avaliableRoomsRef = useRef(false);
-    const [roomsList,setRoomsList] = useState<RoomModel[]>([]);
 
-    const avaliableRoomsapi = async()=>{
-        axios.get<RoomModel>('http://localhost:8080/api/v1/rooms/avaliable');
-    }
+   
 
     const handleItemsChanges = function(){
         avaliableRoomsRef.current = true;
         const avaliableBtn=document.getElementById('avaliable-rooms-btn');
         avaliableBtn?.classList.toggle('hidden:bg-gray-200');
         console.log(avaliableRoomsRef);
-        avaliableRoomsapi();
+        
     }
 
     const searchParams = useSearchParams(); // Using client-side hook
@@ -51,7 +49,15 @@ export default function Rooms(){
                     </div>
                 </div>
                 <div className="col-span-3 border-2 border-red-400 w-full h-full">
-                <RoomCard/>
+                {
+                   roomsList.map((room)=>(
+
+                    <div key={room.roomId}>
+                        <RoomCard/>
+                    </div>
+
+                   ))
+                }
                 
                 </div> 
 

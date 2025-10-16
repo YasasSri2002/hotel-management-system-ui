@@ -1,6 +1,9 @@
 export interface RoomModel{
-    id: number;
+    roomId: number;
     type: string;
     description: string;
     price: number;
+    roomSize: number;
+    minGuestSize: number;
+    maxGuestSize: number;
 }

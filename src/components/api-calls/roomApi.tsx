@@ -2,13 +2,13 @@
 import axios from "axios";
 import { useEffect,useState } from "react";
 import { RoomModel } from "../models/roomModel";
-export default function RoomAPI(){
+export function useRoomAPI(){
 
     const [room,setRoom] =useState<RoomModel[]>([]);
 
     useEffect(()=>{
         const getRooms = async()=>{
-        const response = await axios.get<RoomModel[]>('http://localhost:8080/api/v1/admin/get-room');
+        const response = await axios.get<RoomModel[]>("http://localhost:8080/api/v1/admin/get-room");
         setRoom(response.data);
     }
     getRooms();
@@ -16,5 +16,5 @@ export default function RoomAPI(){
 
 )
 
-    return({room});
+    return(room);
 }
