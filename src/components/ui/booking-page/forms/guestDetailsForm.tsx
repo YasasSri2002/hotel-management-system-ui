@@ -28,13 +28,13 @@ export default function GuestDetailsForm(){
                     <h1 className="ml-1">Country</h1>
                     <DropdownMenu name="country" smallSize={false} items={["Sri Lanka","Japan"]}/>
                 </div>
-                <div className="grid gap-x-10 gap-y-2 grid-cols-2 grid-rows-2">
+                <div className="grid gap-x-10 gap-y-5 grid-cols-2 grid-rows-2">
                     <div className="grid gap-2 col-span-2">
                         <h1 className="ml-1">Address</h1>
                         <input type="text" className="myInputClass" />
                     </div>
                     <div className="col-1 row-2 grid gap-2">
-                        <h1 className="ml-1">City,State or Province</h1>
+                        <h1 className="ml-1">City</h1>
                         <input type="text" className="myInputClass" />
                     </div>
                     <div className="col-2 row-2 grid gap-2">
