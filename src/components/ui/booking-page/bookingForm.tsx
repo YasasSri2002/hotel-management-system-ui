@@ -8,9 +8,11 @@ import BookingSummary from "./bookingSummary";
 import RoomsDetailsForm from "./forms/roomsDetailsForm";
 import GuestDetailsForm from "./forms/guestDetailsForm";
 import PaymentGatwayInterfaceForm from "./forms/paymentGatewayInterfaceFrom";
+import { GetRoomByIdApi } from "@/components/api-calls/get-room-api";
 
 
-export default function BookingForm(){
+
+export default function BookingForm({roomId} : {roomId : number}){
 
     const [step,setStep] =useState<number>(1);
 

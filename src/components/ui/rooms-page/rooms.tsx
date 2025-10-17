@@ -6,7 +6,7 @@ import { useRef,useState } from "react";
 import { RoomModel } from "@/components/models/roomModel";
 import PaginationControls from "@/components/utill/paginationControls";
 import RoomCard from "./cards";
-import {useRoomAPI} from "@/components/api-calls/roomApi";
+import {useRoomAPI} from "@/components/api-calls/get-all-room-api";
 
 
 export default function Rooms(){
@@ -37,7 +37,7 @@ export default function Rooms(){
             <h1 className="text-center">booking rooms</h1>
             
             <div className="grid md:grid md:grid-cols-4">
-                <div className="col-1 border-2 w-dvw sm:w-full h-full my-10 sm:my-0">
+                <div className="col-1 border-2 w-dvw sm:w-full h-full my-10 sm:my-0 p-5 ">
                     <div className="flex flex-wrap justify-evenly">
                         <button className="border-1 border-black/80 rounded-full px-3 py-1 bg-gray-200/80">
                             All Rooms
@@ -48,12 +48,12 @@ export default function Rooms(){
                         </button>
                     </div>
                 </div>
-                <div className="col-span-3 border-2 border-red-400 w-full h-full">
+                <div className="col-span-3 grid gap-8 w-full h-full md:px-10 p-5">
                 {
                    roomsList.map((room)=>(
 
                     <div key={room.roomId}>
-                        <RoomCard/>
+                        <RoomCard details={room}/>
                     </div>
 
                    ))
