@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 import DynamicIcon from "@/components/utill/DynamicIcons";
 
-export default function DropdownMenu({items, smallSize, name}: {readonly items:string[], readonly smallSize : boolean ,readonly name: string} ) {
+export default function DropdownMenu({items, smallSize, name }: {readonly items:string[], readonly smallSize : boolean ,readonly name: string | undefined}  ) {
 
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("Select"); 
+  const [selected, setSelected] = useState<string | undefined>("Select"); 
 
   useEffect(()=>{
     setSelected(name);
@@ -34,7 +34,7 @@ export default function DropdownMenu({items, smallSize, name}: {readonly items:s
      
       <div
         className={`absolute right-0 mt-2 ${smallSize? 'w-[180px]' : 'w-full' } origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transform transition ease-out duration-200 ${
-          isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+          isOpen ? "opacity-100 scale-100 z-50" : "opacity-0 scale-95 pointer-events-none "
         }`}
       >
         <div className="py-1">

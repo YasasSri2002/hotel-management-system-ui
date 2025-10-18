@@ -1,7 +1,7 @@
 import { RoomDetailsModel } from "@/components/models/roomDetails"
 import DynamicIcon from "@/components/utill/DynamicIcons"
 
-export default function BookingSummary(){
+export default function BookingSummary({roomType}:{readonly roomType:string}){
     return(
         <div className="rounded-2xl h-fit shadow-2xl">
            <div className="px-10 py-2">
@@ -9,7 +9,7 @@ export default function BookingSummary(){
             <div className="grid gap-y-5">
                 <div className="border-b-1 border-gray-400 pb-2 mb-2">
                     <h2 className="text-sm text-gray-500">Room Type</h2>
-                    <p className="text-md  text-black/95">Deluxe Room</p>
+                    <p className="text-md  text-black/95">{roomType}</p>
                 </div>
                 <div className="border-b-1 border-gray-300 grid gap-2 pb-2 mb-2">
                     <div>
@@ -24,8 +24,7 @@ export default function BookingSummary(){
                 <div className="border-b-1 border-gray-400 pb-2 mb-2">
                     <div className="flex items-center space-x-2">
                         <DynamicIcon name="MdPeople"/>
-                        <h2 className="text-sm text-gray-500">0 Adults</h2>
-                        <h2 className="text-sm text-gray-500">0 Children</h2>
+                        <h2 className="text-sm text-gray-500">0 Guests</h2>
                     </div>
                     
                 </div>

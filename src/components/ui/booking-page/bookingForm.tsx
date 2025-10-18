@@ -8,8 +8,6 @@ import BookingSummary from "./bookingSummary";
 import RoomsDetailsForm from "./forms/roomsDetailsForm";
 import GuestDetailsForm from "./forms/guestDetailsForm";
 import PaymentGatwayInterfaceForm from "./forms/paymentGatewayInterfaceFrom";
-import { GetRoomByIdApi } from "@/components/api-calls/get-room-api";
-
 
 
 export default function BookingForm({roomId} : {roomId : number}){
@@ -29,7 +27,7 @@ export default function BookingForm({roomId} : {roomId : number}){
 
         switch(step){
             case 1:
-                return(<RoomsDetailsForm/>);
+                return(<RoomsDetailsForm roomId={1}/>);
             case 2:
                 return(<GuestDetailsForm/>);
             case 3:
@@ -64,7 +62,7 @@ export default function BookingForm({roomId} : {roomId : number}){
                     {renderForms()}
                </div>
                <div className="md:col-4">
-                    <BookingSummary/>
+                    <BookingSummary roomType="delux"/>
                </div>
             </div> 
 

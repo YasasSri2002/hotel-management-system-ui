@@ -1,5 +1,27 @@
+'use client';
+import { useEffect,useState } from 'react';
+import { getRoomByIdApi } from '@/components/api-calls/get-room-api';
 import DropdownMenu from '@/components/ui/dropdown';
-export default function RoomsDetailsForm(){
+import { RoomModel } from '@/components/models/roomModel';
+
+
+export default function RoomsDetailsForm({roomId}:{ readonly roomId:number}){
+
+    const[room,setRoom] = useState<RoomModel>();
+
+    useEffect(()=>{
+        async function loadRoom(){
+            const roomData = await getRoomByIdApi(roomId);
+            setRoom(roomData.data)
+        }
+        loadRoom()
+    },[])
+   
+    if(!room) return(<p>Loading....</p>)
+
+    const guestSizeList = Array.from(
+        {length: room.maxGuestSize-room.minGuestSize+1},(_,i)=> String(room.minGuestSize+i))
+
     return(
         <div className="grid p-5 gap-3 ">
             <div className="grid gap-1 ">
@@ -10,7 +32,7 @@ export default function RoomsDetailsForm(){
             <div>
                 <div className="grid gap-2">
                     <h1>Room Type</h1>
-                   <DropdownMenu name="Room Type" smallSize={false} items={["delux room"]}/>
+                   <DropdownMenu name={`${room?.type } - ${room?.price}`} smallSize={false} items={["delux room"]}/>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-2 mt-3">
                     <div className="sm:col-1 gap-2 grid">
@@ -22,14 +44,10 @@ export default function RoomsDetailsForm(){
                         <input type="date" name="checkOutDate" className="border-1 rounded-lg px-5 w-full h-10 bg-gray-300/40 " />
                     </div>
                 </div>
-                <div className="grid sm:grid-cols-2 gap-2 mt-3">
-                    <div className="sm:col-1 gap-2 grid">
-                        <h1>Adults</h1>
-                        <DropdownMenu name='adult' items={["1","2","3"]} smallSize={false} />
-                    </div>
-                    <div className="sm:col-2 gap-2 grid">
-                        <h1>Children</h1>
-                        <DropdownMenu name='children' items={["0","1","2","3"]} smallSize={false} />
+                <div className="grid gap-2 mt-3">
+                    <div className="gap-2 grid">
+                        <h1>Guest(s)</h1>
+                        <DropdownMenu name='guest' items={guestSizeList} smallSize={false} />
                     </div>
                 </div>
                 <div className='grid gap-2 mt-3'>

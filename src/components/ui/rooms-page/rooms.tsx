@@ -6,12 +6,12 @@ import { useRef,useState } from "react";
 import { RoomModel } from "@/components/models/roomModel";
 import PaginationControls from "@/components/utill/paginationControls";
 import RoomCard from "./cards";
-import {useRoomAPI} from "@/components/api-calls/get-all-room-api";
+import { getAllRooms } from "@/components/api-calls/get-room-api";
 
 
 export default function Rooms(){
 
-    const  roomsList : RoomModel[] = useRoomAPI();
+    const  roomsList : RoomModel[] = getAllRooms();
     const avaliableRoomsRef = useRef(false);
 
    
