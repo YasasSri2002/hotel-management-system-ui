@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 
 import DynamicIcon from "@/components/utill/DynamicIcons";
 
-export default function DropdownMenu({items, smallSize, name }: {readonly items:string[], readonly smallSize : boolean ,readonly name: string | undefined}  ) {
+export default function DropdownMenu(
+  {items, smallSize, name ,onSelect }: 
+  { readonly items:string[], 
+    readonly smallSize : boolean ,
+    readonly name: string | undefined , 
+    readonly onSelect?:(value: string)=>void
+
+  } ) {
 
 
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +25,7 @@ export default function DropdownMenu({items, smallSize, name }: {readonly items:
   const handleSelect = (value: string) => {
     setSelected(value); // update button label
     setIsOpen(false);   // close dropdown
+    if(onSelect) onSelect(value);
   };
 
   return (

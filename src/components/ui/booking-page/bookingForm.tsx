@@ -10,7 +10,7 @@ import GuestDetailsForm from "./forms/guestDetailsForm";
 import PaymentGatwayInterfaceForm from "./forms/paymentGatewayInterfaceFrom";
 
 
-export default function BookingForm({roomId} : {roomId : number}){
+export default function BookingForm({roomId} : {readonly roomId : number}){
 
     const [step,setStep] =useState<number>(1);
 

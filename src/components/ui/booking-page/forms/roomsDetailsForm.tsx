@@ -4,10 +4,20 @@ import { getRoomByIdApi } from '@/components/api-calls/get-room-api';
 import DropdownMenu from '@/components/ui/dropdown';
 import { RoomModel } from '@/components/models/roomModel';
 
+interface formData{
+    roomType?: string;
+    checkInDate?: string;
+    checkOutDate?:string;
+    guests?: number;
+    specialMsg?:string;
+}
 
 export default function RoomsDetailsForm({roomId}:{ readonly roomId:number}){
 
     const[room,setRoom] = useState<RoomModel>();
+
+    const[formData,setFormData] =useState<formData>();
+
 
     useEffect(()=>{
         async function loadRoom(){
@@ -22,6 +32,11 @@ export default function RoomsDetailsForm({roomId}:{ readonly roomId:number}){
     const guestSizeList = Array.from(
         {length: room.maxGuestSize-room.minGuestSize+1},(_,i)=> String(room.minGuestSize+i))
 
+    function handleDataChange(roomType: string){
+        setFormData(prev=>({...prev,roomType:roomType}));
+        
+    }
+
     return(
         <div className="grid p-5 gap-3 ">
             <div className="grid gap-1 ">
@@ -32,7 +47,7 @@ export default function RoomsDetailsForm({roomId}:{ readonly roomId:number}){
             <div>
                 <div className="grid gap-2">
                     <h1>Room Type</h1>
-                   <DropdownMenu name={`${room?.type } - ${room?.price}`} smallSize={false} items={["delux room"]}/>
+                   <DropdownMenu name={`${room?.type } - ${room?.price}`} smallSize={false} items={["delux room"]} onSelect={(value)=>handleDataChange(value)}/>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-2 mt-3">
                     <div className="sm:col-1 gap-2 grid">

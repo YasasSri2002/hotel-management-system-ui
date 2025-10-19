@@ -1,4 +1,3 @@
-import { RoomDetailsModel } from "@/components/models/roomDetails"
 import DynamicIcon from "@/components/utill/DynamicIcons"
 
 export default function BookingSummary({roomType}:{readonly roomType:string}){
