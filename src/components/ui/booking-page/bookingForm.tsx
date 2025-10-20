@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 import DynamicIcon from "../../utill/DynamicIcons";
 import BreadCrumb from "./bread-crumb/bookingBredcrumb";
@@ -8,11 +8,18 @@ import BookingSummary from "./bookingSummary";
 import RoomsDetailsForm from "./forms/roomsDetailsForm";
 import GuestDetailsForm from "./forms/guestDetailsForm";
 import PaymentGatwayInterfaceForm from "./forms/paymentGatewayInterfaceFrom";
+import { FormDataModel } from "@/components/models/roomFormDetails";
 
 
 export default function BookingForm({roomId} : {readonly roomId : number}){
 
     const [step,setStep] =useState<number>(1);
+    const[roomFormData,setRoomFormData] =useState<FormDataModel>();
+
+    useEffect(() => {
+    console.log("Room form data updated:", roomFormData);
+    }, [roomFormData]);
+
 
     const handlePrev = function(){
         setStep(prev => Math.max(prev - 1, 1));
@@ -22,12 +29,16 @@ export default function BookingForm({roomId} : {readonly roomId : number}){
         setStep((prev) => Math.min(prev + 1, 3));
         
     }
+    function handleRoomDetailsChanges(value:FormDataModel | undefined ){
+        setRoomFormData(value);
+    }
+    
 
     const renderForms = ()=>{
 
         switch(step){
             case 1:
-                return(<RoomsDetailsForm roomId={1}/>);
+                return(<RoomsDetailsForm roomId={1} onChangeFrom={(value)=>handleRoomDetailsChanges(value)} />);
             case 2:
                 return(<GuestDetailsForm/>);
             case 3:
@@ -62,7 +73,7 @@ export default function BookingForm({roomId} : {readonly roomId : number}){
                     {renderForms()}
                </div>
                <div className="md:col-4">
-                    <BookingSummary roomType="delux"/>
+                    <BookingSummary roomDetails={roomFormData}/>
                </div>
             </div> 
 
