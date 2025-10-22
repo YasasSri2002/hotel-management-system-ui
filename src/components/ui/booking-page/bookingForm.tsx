@@ -9,9 +9,11 @@ import RoomsDetailsForm from "./forms/roomsDetailsForm";
 import GuestDetailsForm from "./forms/guestDetailsForm";
 import PaymentGatwayInterfaceForm from "./forms/paymentGatewayInterfaceFrom";
 import { FormDataModel } from "@/components/models/roomFormDetails";
+import { makeBooking } from "@/components/api-calls/make-a-booking-api";
+import { BookingModel } from "@/components/models/bookingModel";
 
 
-export default function BookingForm({roomId} : {readonly roomId : number}){
+export default function BookingForm({roomIdToGetData} : {readonly roomIdToGetData : number}){
 
     const [step,setStep] =useState<number>(1);
     const[roomFormData,setRoomFormData] =useState<FormDataModel>();
@@ -27,12 +29,27 @@ export default function BookingForm({roomId} : {readonly roomId : number}){
     }
     const handleNext = function(){
         setStep((prev) => Math.min(prev + 1, 3));
-        
+              
     }
     function handleRoomDetailsChanges(value:FormDataModel | undefined ){
         setRoomFormData(value);
     }
     
+    async function handleConfirmation() {
+        if (!roomFormData) return;
+
+        const bookingDetailsModel: BookingModel = {
+            startingDateTime: roomFormData.checkInDate?.toDateString(),
+            endingDateTime: roomFormData.checkOutDate?.toDateString(),
+            status: "recived",
+            specialMsg: roomFormData.specialMsg,
+            roomId: [roomIdToGetData],
+        };
+
+        // Call your API with the resolved booking model
+        await makeBooking(bookingDetailsModel);
+    }
+
 
     const renderForms = ()=>{
 
@@ -87,7 +104,10 @@ export default function BookingForm({roomId} : {readonly roomId : number}){
                 <button id="next" className={`border-2 px-4 py-1 ${step==3 ? 'sr-only': 'not-sr-only'}`}
                 onClick={handleNext}
                 >
-                    Next
+                    next
+                </button>
+                <button id="confirm" className={`border-2 px-4 py-1 bg-slate-950 text-white ${step==3 ? 'not-sr-only': 'sr-only'} ` } onClick={handleConfirmation}>
+                    Confirm
                 </button>
             </div>
         </div>

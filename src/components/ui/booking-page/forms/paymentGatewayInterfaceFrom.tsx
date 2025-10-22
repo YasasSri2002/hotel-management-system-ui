@@ -44,7 +44,7 @@ export default function PaymentGatwayInterfaceForm(){
                     </div>
                 </div>
                 <div className="grid gap-2">
-                    <label htmlFor="name" className="ml-1">Cardholder's Name</label>
+                    <label htmlFor="name" className="ml-1">Cardholder&apos;s Name</label>
                     <input type="text" className="myInputClass" />
                 </div>
                 <div className="grid gap-2">

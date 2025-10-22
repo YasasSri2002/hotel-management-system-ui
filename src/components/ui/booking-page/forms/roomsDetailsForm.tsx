@@ -15,7 +15,14 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
 
     const[room,setRoom] = useState<RoomModel>();
 
-    const[formData,setFormData] =useState<FormDataModel>();
+    const[formData,setFormData] =useState<FormDataModel>({
+        roomType: "",
+        checkInDate: new Date(),
+        checkOutDate:new Date(),
+        guests: 0,
+        specialMsg: "",
+        roomPrice: 0
+    });
 
     
 
@@ -25,7 +32,7 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
             setRoom(roomData.data)
         }
         loadRoom() 
-    },[])
+    },[roomId])
 
     useEffect(() => {
         if (room) {
@@ -47,13 +54,16 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
            
     }
 
-    function handleCheckInDateChanges(event:any){
-        setFormData(prev=>({...prev,checkInDate:event.target.value}));
+    function handleCheckInDateChanges(event: React.ChangeEvent<HTMLInputElement>){
+        const changeStringToDate = new Date(event.target.value);
+        setFormData(prev=>({...prev,checkInDate:changeStringToDate}));
        
     }
 
-    function handleCheckOutDateChanges(event:any){
-        setFormData(prev=>({...prev,checkOutDate:event.target.value}));
+    function handleCheckOutDateChanges(event: React.ChangeEvent<HTMLInputElement>){
+        const changeValueToDate = new Date(event.target.value);
+        setFormData(prev=>({...prev,checkOutDate:changeValueToDate}));
+
         
     }
 
@@ -62,7 +72,7 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
        
     }
 
-    function hanldleSpecialMsg(event:any){
+    function hanldleSpecialMsg(event:React.ChangeEvent<HTMLTextAreaElement>){
         setFormData(prev=>({...prev,specialMsg:event.target.value}));
         
     }

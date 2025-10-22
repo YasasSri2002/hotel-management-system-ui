@@ -6,6 +6,8 @@ export interface BookingModel{
 
     status: string;
 
+    specialMsg : string;
+
     roomId: number[];
 
 }
