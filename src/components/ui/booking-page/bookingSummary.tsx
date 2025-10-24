@@ -39,13 +39,13 @@ function totalprice(){
                     <div>
                         <h2 className="text-sm text-gray-500">Check In </h2>
                         <p className="text-md  text-black/95">{
-                        roomDetails?.checkInDate ? roomDetails.checkInDate?.toString() : "Not Selected" 
+                        roomDetails?.checkInDate ? roomDetails.checkInDate?.toDateString() : "Not Selected" 
                         }</p>
                     </div>
                     <div>
                         <h2 className="text-sm text-gray-500">Check Out </h2>
                         <p className="text-md  text-black/95">{
-                        roomDetails?.checkOutDate ? roomDetails.checkOutDate?.toString() : "Not Selected" 
+                        roomDetails?.checkOutDate ? roomDetails.checkOutDate?.toDateString() : "Not Selected" 
                         }</p>
                     </div>
                 </div>

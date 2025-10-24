@@ -51,6 +51,8 @@ export default function BookingForm({roomIdToGetData} : {readonly roomIdToGetDat
     }
 
 
+
+
     const renderForms = ()=>{
 
         switch(step){
@@ -85,8 +87,8 @@ export default function BookingForm({roomIdToGetData} : {readonly roomIdToGetDat
                 <BreadCrumb steps={step}/>
             </div>
 
-            <div className="grid justify-items-center md:grid-cols-4 w-full p-5 gap-5 ">
-               <div className="md:col-span-3 border-t-1 rounded-3xl shadow-xl md:w-3xl">
+            <div className="grid justify-items-center lg:grid-cols-4 w-full p-5 gap-5 ">
+               <div className="md:col-span-3 border-t-1 rounded-3xl shadow-xl lg:w-3xl">
                     {renderForms()}
                </div>
                <div className="md:col-4">

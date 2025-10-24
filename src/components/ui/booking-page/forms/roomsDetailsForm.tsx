@@ -14,6 +14,8 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
 }){
 
     const[room,setRoom] = useState<RoomModel>();
+    const [checkInDateCheck, setCheckInDateCheck] = useState(false);
+    const [checkOutDateCheck, setCheckOutDateCheck] = useState(false);
 
     const[formData,setFormData] =useState<FormDataModel>({
         roomType: "",
@@ -55,15 +57,29 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
     }
 
     function handleCheckInDateChanges(event: React.ChangeEvent<HTMLInputElement>){
+        const today = new Date();
         const changeStringToDate = new Date(event.target.value);
+        if(changeStringToDate>=today){
         setFormData(prev=>({...prev,checkInDate:changeStringToDate}));
-       
+        if(checkInDateCheck){
+                setCheckInDateCheck(false);
+            }
+        }else{
+            setCheckInDateCheck(true);
+        }
     }
 
     function handleCheckOutDateChanges(event: React.ChangeEvent<HTMLInputElement>){
         const changeValueToDate = new Date(event.target.value);
+        const today = new Date();
+        if(changeValueToDate >= today){
         setFormData(prev=>({...prev,checkOutDate:changeValueToDate}));
-
+            if(checkOutDateCheck){
+                setCheckOutDateCheck(false);
+            }
+        }else{
+            setCheckOutDateCheck(true);
+        }
         
     }
 
@@ -96,10 +112,19 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
                     <div className="sm:col-1 gap-2 grid">
                         <h1>Check In Date</h1>
                         <input type="date" name="checkInDate"  className="border-1 rounded-lg px-5 w-full h-10 bg-gray-300/40 " onChange={handleCheckInDateChanges} />
+                        <span className={`ml-2 min-h-[1.25rem] block 
+                                        ${checkInDateCheck ? "text-red-400" : "text-transparent"}`}>
+                            Please select valid date
+                        </span>
+
                     </div>
                     <div className="sm:col-2 gap-2 grid">
                         <h1>Check Out Date</h1>
                         <input type="date" name="checkOutDate" className="border-1 rounded-lg px-5 w-full h-10 bg-gray-300/40 " onChange={handleCheckOutDateChanges} />
+                         <span className={`ml-2 min-h-[1.25rem] block 
+                                        ${checkOutDateCheck ? "text-red-400" : "text-transparent"}`}>
+                            Please select valid date
+                        </span>
                     </div>
                 </div>
                 <div className="grid gap-2 mt-3">
