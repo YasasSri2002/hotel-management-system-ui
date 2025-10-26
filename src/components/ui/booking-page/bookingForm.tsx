@@ -39,15 +39,16 @@ export default function BookingForm({roomIdToGetData} : {readonly roomIdToGetDat
         if (!roomFormData) return;
 
         const bookingDetailsModel: BookingModel = {
-            startingDateTime: roomFormData.checkInDate?.toDateString(),
-            endingDateTime: roomFormData.checkOutDate?.toDateString(),
+            startingDateTime: roomFormData.checkInDate?.toString(),
+            endingDateTime: roomFormData.checkOutDate?.toString(),
             status: "recived",
             specialMsg: roomFormData.specialMsg,
             roomId: [roomIdToGetData],
         };
-
+         console.log(bookingDetailsModel);
         // Call your API with the resolved booking model
         await makeBooking(bookingDetailsModel);
+       
     }
 
 

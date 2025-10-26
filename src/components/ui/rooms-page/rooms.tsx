@@ -12,6 +12,7 @@ import { getAllRooms } from "@/components/api-calls/get-room-api";
 export default function Rooms(){
 
     const  roomsList : RoomModel[] = getAllRooms();
+    console.log(roomsList)
     const avaliableRoomsRef = useRef(false);
 
    

@@ -1,7 +1,7 @@
 export interface FormDataModel{
     roomType: string;
-    checkInDate: Date;
-    checkOutDate:Date;
+    checkInDate: string;
+    checkOutDate:string;
     guests: number;
     specialMsg:string;
     roomPrice: number;

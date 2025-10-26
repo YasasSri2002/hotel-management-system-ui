@@ -19,8 +19,8 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
 
     const[formData,setFormData] =useState<FormDataModel>({
         roomType: "",
-        checkInDate: new Date(),
-        checkOutDate:new Date(),
+        checkInDate: "",
+        checkOutDate: "",
         guests: 0,
         specialMsg: "",
         roomPrice: 0
@@ -58,22 +58,35 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
 
     function handleCheckInDateChanges(event: React.ChangeEvent<HTMLInputElement>){
         const today = new Date();
-        const changeStringToDate = new Date(event.target.value);
-        if(changeStringToDate>=today){
-        setFormData(prev=>({...prev,checkInDate:changeStringToDate}));
-        if(checkInDateCheck){
-                setCheckInDateCheck(false);
-            }
-        }else{
-            setCheckInDateCheck(true);
+        const [year, month, day] = event.target.value.split("-").map(Number);
+    
+        // Force it to be treated as UTC midnight (not local midnight)
+        const selectedCheckInDateUTC = new Date(Date.UTC(year, month - 1, day));
+
+        // Compare using local midnight
+        const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+        if (selectedCheckInDateUTC >= todayMidnight) {
+        // Store ISO string that represents *the same date* in UTC
+        setFormData(prev => ({
+            ...prev,
+            checkInDate: selectedCheckInDateUTC.toISOString()
+        }));
+
+        if (checkInDateCheck) setCheckInDateCheck(false);
+        } else {
+        setCheckInDateCheck(true);
         }
     }
 
     function handleCheckOutDateChanges(event: React.ChangeEvent<HTMLInputElement>){
-        const changeValueToDate = new Date(event.target.value);
         const today = new Date();
-        if(changeValueToDate >= today){
-        setFormData(prev=>({...prev,checkOutDate:changeValueToDate}));
+        const [year,month,day]= event.target.value.split("-").map(Number);
+        const selectedCheckOutDate= new Date(year,month-1,day);
+        const selectedCheckOutDateUTC= new Date(Date.UTC(year,month-1,day));
+        const todayMidnight= new Date(today.getFullYear(),today.getMonth(),today.getDate());
+        if(selectedCheckOutDate> todayMidnight){
+        setFormData(prev=>({...prev,checkOutDate:selectedCheckOutDateUTC.toISOString()}));
             if(checkOutDateCheck){
                 setCheckOutDateCheck(false);
             }
