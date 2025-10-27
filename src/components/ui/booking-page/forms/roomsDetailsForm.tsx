@@ -45,8 +45,18 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
      useEffect(()=>{
         if(onChangeFrom) onChangeFrom(formData);
     },[formData])
+
+    useEffect(() => {
+        if (formData.checkInDate && formData.checkOutDate) {
+            if (formData.checkInDate === formData.checkOutDate) {
+                setCheckOutDateCheck(true);
+            } else {
+                setCheckOutDateCheck(false);
+            }
+        }
+    }, [formData.checkOutDate, formData.checkInDate]);
    
-    if(!room) return(<p>Loading....</p>)
+    if(!room) return(<div className='grid justify-items-center content-center w-full h-full lg:text-2xl'><p>Loading....</p></div>)
 
     const guestSizeList = Array.from(
         {length: room.maxGuestSize-room.minGuestSize+1},(_,i)=> String(room.minGuestSize+i))
@@ -86,12 +96,13 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
         const selectedCheckOutDateUTC= new Date(Date.UTC(year,month-1,day));
         const todayMidnight= new Date(today.getFullYear(),today.getMonth(),today.getDate());
         if(selectedCheckOutDate> todayMidnight){
-        setFormData(prev=>({...prev,checkOutDate:selectedCheckOutDateUTC.toISOString()}));
+            setFormData(prev=>({...prev,checkOutDate:selectedCheckOutDateUTC.toISOString()}));
+            
             if(checkOutDateCheck){
-                setCheckOutDateCheck(false);
-            }
-        }else{
-            setCheckOutDateCheck(true);
+                    setCheckOutDateCheck(false);
+                }
+            }else{
+                setCheckOutDateCheck(true);
         }
         
     }
@@ -106,6 +117,7 @@ export default function RoomsDetailsForm({roomId ,onChangeFrom}:
         
     }
 
+    
    
     
 
