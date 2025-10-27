@@ -1,7 +1,16 @@
+'use client';
+import { useRouter } from "next/navigation"; 
 
 import { RoomModel } from "@/components/models/roomModel";
 
+
 export default function RoomCard({details}: {readonly details: RoomModel}){
+
+    const router = useRouter();
+
+    function handleBooking(){
+        router.push(`/booking?roomId=${details.roomId}`)
+    }
     
     return(
         <div className="w-full  grid gap-10 sm:gap-0 sm:grid sm:grid-cols-2 sm:justify-between rounded-2xl shadow-lg border-t-1 ">
@@ -24,7 +33,9 @@ export default function RoomCard({details}: {readonly details: RoomModel}){
                 <p>{details.description}</p>
                 <div className="flex justify-end align-bottom h-fit">
                   
-                     <button className="py-1 px-5 border-2 border-green-400/60  rounded-2xl ">
+                     <button className="py-1 px-5 border-2 border-green-400/60  rounded-2xl "
+                     onClick={handleBooking}
+                     >
                         Book this room
                      </button> :
                 

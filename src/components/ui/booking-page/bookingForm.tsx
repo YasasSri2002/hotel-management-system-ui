@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState,useEffect } from "react";
 
+
 import DynamicIcon from "../../utill/DynamicIcons";
 import BreadCrumb from "./bread-crumb/bookingBredcrumb";
 import BookingSummary from "./bookingSummary";
@@ -58,7 +59,7 @@ export default function BookingForm({roomIdToGetData} : {readonly roomIdToGetDat
 
         switch(step){
             case 1:
-                return(<RoomsDetailsForm roomId={1} onChangeFrom={(value)=>handleRoomDetailsChanges(value)} />);
+                return(<RoomsDetailsForm roomId={roomIdToGetData} onChangeFrom={(value)=>handleRoomDetailsChanges(value)} />);
             case 2:
                 return(<GuestDetailsForm/>);
             case 3:
