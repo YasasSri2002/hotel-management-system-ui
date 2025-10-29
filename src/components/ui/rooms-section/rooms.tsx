@@ -1,7 +1,10 @@
+import Link from "next/link";
+
 import RoomCards from "./roomCards";
 import { RoomDetailsModel } from "../../models/roomDetails";
 import { HeaderModel } from "@/components/models/header";
 import HeaderSection from "../header";
+import DynamicIcon from "@/components/utill/DynamicIcons";
 
 const roomCardDetailsList: RoomDetailsModel[] =[
     {           id:1,
@@ -50,8 +53,9 @@ export default function RoomSection(){
                     <div key={details.id}>
                         <RoomCards cardRoomDetails={details}/>
                     </div>
-                ))
+                ))     
             }
+            <Link href="/rooms" className="flex space-x-10 items-center ">More Rooms<DynamicIcon name="MdWaves"/></Link>
            </div>
         </div>
         

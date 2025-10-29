@@ -12,28 +12,55 @@ import PaymentGatwayInterfaceForm from "./forms/paymentGatewayInterfaceFrom";
 import { FormDataModel } from "@/components/models/roomFormDetails";
 import { makeBooking } from "@/components/api-calls/make-a-booking-api";
 import { BookingModel } from "@/components/models/bookingModel";
+import { CheckRoomAvailability } from "@/components/api-calls/check-room-availability";
 
 
 export default function BookingForm({roomIdToGetData} : {readonly roomIdToGetData : number}){
 
     const [step,setStep] =useState<number>(1);
     const[roomFormData,setRoomFormData] =useState<FormDataModel>();
-
-    useEffect(() => {
-    console.log("Room form data updated:", roomFormData);
-    }, [roomFormData]);
+    const [isChecking, setIsChecking] = useState(false);
 
 
     const handlePrev = function(){
         setStep(prev => Math.max(prev - 1, 1));
         
     }
-    const handleNext = function(){
-        setStep((prev) => Math.min(prev + 1, 3));
+    const handleNext = async function(){
+        if(roomFormData?.checkInDate && roomFormData?.checkOutDate){
+            const startDate = roomFormData.checkInDate.replace("Z","");
+            const endDate = roomFormData.checkOutDate.replace("Z","");
+           
+            try{
+                setIsChecking(true);
+                 const roomAvailability = await CheckRoomAvailability(
+                                                                        roomIdToGetData,
+                                                                        startDate,
+                                                                        endDate
+                                                                    );
+                
+                if(roomAvailability == "Room is available"){
+                    setStep((prev) => Math.min(prev + 1, 3));
+                }else{
+                    alert("Room is not avaliable");
+                }
+            }catch(err:any){ console.error(err)
+
+            }finally{
+                setIsChecking(false);
+            }
+            
+            
+                
+            
+        }
+        
               
     }
+    
     function handleRoomDetailsChanges(value:FormDataModel | undefined ){
         setRoomFormData(value);
+        console.log(value)
     }
     
     async function handleConfirmation() {
@@ -105,10 +132,10 @@ export default function BookingForm({roomIdToGetData} : {readonly roomIdToGetDat
                 >
                     Prev
                 </button>
-                <button id="next" className={`border-2 px-4 py-1 ${step==3 ? 'sr-only': 'not-sr-only'}`}
+                <button id="next" disabled={isChecking} className={`border-2 px-4 py-1 ${step==3 ? 'sr-only': 'not-sr-only'}`}
                 onClick={handleNext}
                 >
-                    next
+                    {isChecking ? "checking....." : "next"}
                 </button>
                 <button id="confirm" className={`border-2 px-4 py-1 bg-slate-950 text-white ${step==3 ? 'not-sr-only': 'sr-only'} ` } onClick={handleConfirmation}>
                     Confirm
